@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖大赛开始</title>
+		<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="icon" type="image/png" href="创作.png" />
+	</head>
+
+	<body>
+		<section class="lottery-box">
+			<ul class="lottery" id="J_lottery">
+				<li id="1" data-pos="1" class="cur"><span>?</span></li>
+				<li id="2" data-pos="2" class="cur"><span>?</span></li>
+				<li id="3" class="cur"><span>?</span></li>
+				<li id="4" class="cur"><span>?</span></li>
+				<li id="5" class="cur"><span>?</span></li>
+				<li id="6" class="cur"><span>?</span></li>
+				<li id="7" class="cur"><span>?</span></li>
+				<li id="8" class="cur"><span>?</span></li>
+				<li id="9" class="cur"><span>?</span></li>
+			</ul>
+			<p class="title">翻牌赢大奖</p>
+			<p class="info">1：打扫；2：拖地；3：厕所；4：办公司；5：积极<br>本程序最终解释权归helin所有</p>
+		</section>
+		<script type="text/javascript">
+			var a;
+			$(document).ready(function() {
+				//下列代码中的参数num为要生成数组的长度，from为起始值，to为末尾值
+				a = selectRandom(9, 0, 8)
+				console.log(a[5])
+			})
+
+			function selectRandom(num, from, to) {
+				let arr = [];
+				let json = {};
+				let needNum;
+
+				if (from - to >= 0) {
+					console.log(111)
+					return '起始值要小于末尾值'
+				}
+
+				if (to - from == to) {
+					needNum = parseInt(to) + 1;
+				} else {
+					needNum = to - from;
+				}
+				if (num > needNum) {
+					return
+				} else {
+					while (arr.length < num) {
+						let ranNum = Math.ceil(Math.random() * needNum);
+						if (!json[ranNum]) {
+							json[ranNum] = 1;
+							arr.push(ranNum)
+						}
+					}
+					return arr;
+				}
+			}
+			$("#1").click(function() {
+				$(this).children().html(a[0]);
+				$("#1").removeClass("cur");
+				console.log(a[0])
+			})
+			$("#2").click(function() {
+				$(this).children().html(a[1]);
+				$("#2").removeClass("cur");
+				console.log(a[1])
+			})
+			$("#3").click(function() {
+				$(this).children().html(a[2]);
+				$("#3").removeClass("cur");
+				console.log(a[2])
+			})
+			$("#4").click(function() {
+				$(this).children().html(a[3]);
+				$("#4").removeClass("cur");
+				console.log(a[3])
+			})
+			$("#5").click(function() {
+				$(this).children().html(a[4]);
+				$("#5").removeClass("cur");
+				console.log(a[4])
+			})
+			$("#6").click(function() {
+				$(this).children().html(a[5]);
+				$("#6").removeClass("cur");
+				console.log(a[5])
+			})
+			$("#7").click(function() {
+				$(this).children().html(a[6]);
+				$("#7").removeClass("cur");
+				console.log(a[6])
+			})
+			$("#8").click(function() {
+				$(this).children().html(a[7]);
+				$("#8").removeClass("cur");
+				console.log(a[7])
+			})
+			$("#9").click(function() {
+				$(this).children().html(a[8]);
+				$("#9").removeClass("cur");
+				console.log(a[8])
+			})
+		</script>
+	</body>
+</html>
